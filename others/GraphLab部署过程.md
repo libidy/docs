@@ -5,8 +5,7 @@
   
 　　我们部署的版本是[PowerGraph](https://github.com/jegonzal/PowerGraph)，是github上面的开源项目，可以直接基于它开发C++应用。现在GraphLab的小组已经成立了公司，对应的产品为GraphLab-Create,在原有的基础上用Python进行封装，还进行了一些优化。GraphLab-Create并不是免费的，可以加入Academic Program免费试用一年。相应地，他们小组也逐渐弃用了PowerGraph。
   
-  
-  这是之前弄的，现在已经没有用这个 ，这个文档什么的都不全，如果是新做图挖掘，建议还是使用官方提供的Graphlab-Create。
+    部署PowerGraph是我之前做的，现在已经没有用这个，PowerGraph文档什么的都不全。如果还是在选择框架阶段，建议还是使用官方提供的Graphlab-Create。但是，如果有需要配置PowerGraph的朋友，希望这个文档还是能够对你有所帮助。
 ## 2. 整体部署说明
 　　GraphLab的这个PowerGraph项目包括处于顶层的核心API、机器学习和数据挖掘的工具包。通过TCP/IP进行进程间通信，使用MPI来启动和管理PowerGraph程序，而且每一个程序都是多线程的。
   
@@ -100,9 +99,8 @@ service ssh restart
 ssh localhost
 ```
 　　**注意事项：**此处很可能不能成功，请检查三个文件目录的权限，$HOME/.ssh/authorized_keys文件（可以设置为600），$HOME/.ssh目录(可以设置为700)，$HOME目录（可以设置为731），这三个目录都只能设置成拥有者有写权限，否则sshd不工作，因为sshd发现这些目录别人也有写权限的话，它会认为别人也有能力篡改authorized_keys文件中的值，那么是不安全的，所以就不会工作。
-
-- - -
-
+  
+  
 　　设置文件权限,如 authorized_keys的权限设置为600
 ```Bash
 chmod 600 authorized_keys
