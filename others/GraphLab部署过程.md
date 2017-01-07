@@ -1,11 +1,12 @@
 # GraphLab部署过程
 ## 1. GraphLab简单介绍
-　　GraphLab是CMU（卡耐基梅隆大学）开发的一个以vertex为计算单元的大规模图处理系统，是继google的Pregel之后的第一个开源的大规模图处理系统，它解决了传统MapReduce框架对于机器学习应用的处理中最突出的两个问题（频繁迭代计算和大量节点通信）引起的计算效率的问题，与Haloop，Twister等基于MapReduce批量处理不同的是，它采用Pregel的以vertex为计算单元，并将机器学习抽象成GAS（gather，apply，scatter）三个步骤，然后按该抽象模型设计实现算法，事实已经证明该框架对于机器学习这一类跟图处理关系紧密的应用有很好的效果。
+    GraphLab是CMU（卡耐基梅隆大学）开发的一个以vertex为计算单元的大规模图处理系统，是继google的Pregel之后的第一个开源的大规模图处理系统，它解决了传统MapReduce框架对于机器学习应用的处理中最突出的两个问题（频繁迭代计算和大量节点通信）引起的计算效率的问题，与Haloop，Twister等基于MapReduce批量处理不同的是，它采用Pregel的以vertex为计算单元，并将机器学习抽象成GAS（gather，apply，scatter）三个步骤，然后按该抽象模型设计实现算法，事实已经证明该框架对于机器学习这一类跟图处理关系紧密的应用有很好的效果。
   
   
-　　我们部署的版本是[PowerGraph](https://github.com/jegonzal/PowerGraph)，是github上面的开源项目，可以直接基于它开发C++应用。现在GraphLab的小组已经成立了公司，对应的产品为GraphLab-Create,在原有的基础上用Python进行封装，还进行了一些优化。GraphLab-Create并不是免费的，可以加入Academic Program免费试用一年。相应地，他们小组也逐渐弃用了PowerGraph。
+    我们部署的版本是[PowerGraph](https://github.com/jegonzal/PowerGraph)，是github上面的开源项目，可以直接基于它开发C++应用。现在GraphLab的小组已经成立了公司，对应的产品为GraphLab-Create,在原有的基础上用Python进行封装，还进行了一些优化。GraphLab-Create并不是免费的，可以加入Academic Program免费试用一年。相应地，他们小组也逐渐弃用了PowerGraph。
   
-    部署PowerGraph是我之前做的，现在已经没有用这个，PowerGraph文档什么的都不全。如果还是在选择框架阶段，建议还是使用官方提供的Graphlab-Create。但是，如果有需要配置PowerGraph的朋友，希望这个文档还是能够对你有所帮助。
+  
+    部署PowerGraph这个事情是我之前做的，现在已经没有用这个，PowerGraph文档什么的都不全。如果还是在选择框架阶段，建议还是使用官方提供的Graphlab-Create。但是，如果有需要配置PowerGraph的朋友，希望这个文档还是能够对你有所帮助。
 ## 2. 整体部署说明
 　　GraphLab的这个PowerGraph项目包括处于顶层的核心API、机器学习和数据挖掘的工具包。通过TCP/IP进行进程间通信，使用MPI来启动和管理PowerGraph程序，而且每一个程序都是多线程的。
   
@@ -198,7 +199,7 @@ graphlabslave2
 ```
 　　如果上述命令能够正确无误执行，那么GraphLab分布式集群运算环境搭建就算完成了。
 ## 4. 主要参考资料
-1. [搭建GraphLab集群总结](http://www.cnblogs.com/jasonkoo/p/3257517.html
+1. [搭建GraphLab集群总结](http://www.cnblogs.com/jasonkoo/p/3257517.html)
 2. [GraphLab PowerGraph v2.2](https://github.com/dato-code/PowerGraph/blob/master/README.md)
 3. [GraphLab PowerGraph Tutorials](https://github.com/dato-code/PowerGraph/blob/master/TUTORIALS.md#cluster)
 4. [Setting Up an MPICH2 Cluster in Ubuntu](https://help.ubuntu.com/community/MpichCluster)
