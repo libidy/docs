@@ -6,7 +6,7 @@
 　　我们部署的版本是[PowerGraph](https://github.com/jegonzal/PowerGraph)，是github上面的开源项目，可以直接基于它开发C++应用。现在GraphLab的小组已经成立了公司，对应的产品为GraphLab-Create,在原有的基础上用Python进行封装，还进行了一些优化。GraphLab-Create并不是免费的，可以加入Academic Program免费试用一年。相应地，他们小组也逐渐弃用了PowerGraph。
   
   
-　　部署PowerGraph这个事情是我之前做的，现在已经没有用这个，PowerGraph文档什么的都不全。如果还是在选择框架阶段，建议还是使用官方提供的Graphlab-Create。但是，如果需要部署PowerGraph，希望这个文档还是能够对你有所帮助。
+　　部署PowerGraph这个事情是我之前做的，现在已经没有用这个框架，PowerGraph文档什么的都不全。如果还是在选择框架阶段，建议还是使用官方提供的Graphlab-Create。但是，如果需要部署PowerGraph，希望这个文档还是能够对你有所帮助。
 ## 2. 整体部署说明
 　　GraphLab的这个PowerGraph项目包括处于顶层的核心API、机器学习和数据挖掘的工具包。通过TCP/IP进行进程间通信，使用MPI来启动和管理PowerGraph程序，而且每一个程序都是多线程的。
   
@@ -30,7 +30,7 @@
 　　可能这个主机名有迷惑作用，会认为主机之间存在主次之分，是因为之前考虑安装Hadoop遗留的问题，就是说，GraphLab的主机结点没有主次之分。
   
   
-　　**需要注意的是**，根据GraphLab官方指南，安装GraphLab需要使用64bit的操作系统。而且根据网上博客内容，最后每台主机的机型完全一致，因为GraphLab使用C\++开发，相比Java的一处编译多处运行，C++并不具有这种特性。要想让在一台主机上编译的代码能够在其他主机上正确运行，一定要确保所有主机型号一致（但是博主实验时不同机型的主机也可以并行，所以这只是作参考，最好机型一致）。
+　　**需要注意的是**，根据GraphLab官方指南，安装GraphLab需要使用64bit的操作系统。而且根据网上博客内容，最好每台主机的机型完全一致，因为GraphLab使用C\++开发，相比Java的一处编译多处运行，C++并不具有这种特性。要想让在一台主机上编译的代码能够在其他主机上正确运行，一定要确保所有主机型号一致（但是博主实验时不同机型的主机也可以并行，所以这只是作参考，最好机型一致）。
 ###### 2) 安装注意事项
 
 
@@ -133,7 +133,7 @@ sudo apt-get install gcc g++ build-essential libopenmpi-dev openmpi-bin default-
 ###### 3) 从GitHub上下载GraphLab(接下来的操作在一台主机上)
 　　选取集群中的一台机器，进入要安装GraphLab的目录，使用如下的git命令下载GraphLab
 ```Bash
-git clone https://github.com/jegonzal/PowerGraph.git
+git clone https://github.com/graphlab-code/graphlab.git
 ```
 ###### 4) 编译GraphLab
 　　进入graphlab文件夹，使用graphlab自带的configure脚本配置编译环境
